@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+</head>
+
+<body>
+  <main>
+    <section class="swiper">
+      <!-- 01 -->
+      <div id="circle" class="swiper-wrapper">
+        <article class="face1 swiper-slide ">
+          Slide 1
+        </article>
+        <!-- 02 -->
+        <article class="face2 swiper-slide">
+          Slide 2
+        </article>
+        <!-- 03 -->
+        <article class="face3 swiper-slide">
+          Slide 3
+        </article>
+        <!-- 04 -->
+        <article class="face4 swiper-slide">
+          Slide 4
+        </article>
+        <!-- 05 -->
+        <article class="face5 swiper-slide">
+          Slide 5
+        </article>
+        <!-- 06 -->
+        <article class="face6 swiper-slide">
+          Slide 6
+        </article>
+        <!-- 07 -->
+        <article class="face7 swiper-slide">
+          Slide 7
+        </article>
+        <!-- 08 -->
+        <article class="face8 swiper-slide">
+          Slide 8
+        </article>
+        <!-- 09 -->
+        <article class="face9 swiper-slide">
+          Slide 9
+        </article>
+        <!-- 10 -->
+        <article class="face10 swiper-slide">
+          Slide 10
+        </article>
+      </div>
+      <div class="swiper-btn">
+        <div class="btnPrev"></div>
+        <div class="btnNext"></div>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  const frame = document.querySelector("#circle");
+  const list = frame.querySelectorAll("article");
+  const prev = document.querySelector(".btnPrev");
+  const next = document.querySelector(".btnNext");
+
+  const len = list.length;
+  const deg = 36; // 각 슬라이드마다 90도 회전
+  let num = 0; // 현재 회전 각도
+  let active = 0; // active 변수를 여기서 선언하고 초기화합니다.
+
+  prev.addEventListener("click", () => {
+    num += deg; // 오른쪽으로 회전
+    frame.style.transform = `rotateY(${num}deg)`;
+    active === 0 ? (active = len - 1) : active--;
+    for (let el of list) el.classList.remove("on"); // 모든 슬라이드에서 'on' 클래스 제거
+    list[active].classList.add("on"); // 현재 활성화된 슬라이드에 'on' 클래스 추가
+  });
+
+  next.addEventListener("click", () => {
+    num -= deg; // 왼쪽으로 회전
+    frame.style.transform = `rotateY(${num}deg)`;
+    active === len - 1 ? (active = 0) : active++;
+    for (let el of list) el.classList.remove("on"); // 모든 슬라이드에서 'on' 클래스 제거
+    list[active].classList.add("on"); // 현재 활성화된 슬라이드에 'on' 클래스 추가
+  });
+</script>
+
+</html>
