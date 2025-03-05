@@ -1,3 +1,6 @@
+html {
+  font-size: 10px;
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -40,12 +43,7 @@ main {
     transform-style: preserve-3d;
     transform-origin: center;
     transition: transform 0.8s ease;
-    /* 부드러운 회전을 위한 transition */
     transform: rotateY(0deg);
-    // transform: translateZ(-2000px);
-    // animation: ani 30s linear infinite;
-
-
 
     article {
       width: 100%;
@@ -122,13 +120,23 @@ main {
     }
   }
 
+  img {
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+
+    
+  }
+  .inner {
+    padding: 4%;
+  }
+
   article.on {
     animation: fadeInOut 0.8s forwards;
   }
 
   .swiper-wrapper {
     width: 80%;
-    border: 1px solid red;
   }
 
   .swiper-slide {
@@ -154,28 +162,31 @@ main {
   }
 
   .btnPrev {
+    cursor: pointer;
     width: 50px;
     height: 50px;
     position: absolute;
-    left: 3%;
+    left: 5%;
     top: 50%;
     transform: translateY(-50%);
     background: url(./img/before.svg);
     background-repeat: no-repeat;
     right: 10%;
+    z-index: 999;
   }
 
   .btnNext {
+    cursor: pointer;
     width: 50px;
     height: 50px;
     position: absolute;
-    right: 3%;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
     background: url(./img/after.svg);
     background-repeat: no-repeat;
+    z-index: 999;
   }
-
 }
 
 @keyframes ani {
